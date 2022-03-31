@@ -1,0 +1,42 @@
+header{
+    background-color: coral;
+    text-align: center;
+    padding: 1px;
+}
+
+ul{
+    display: flex;
+    justify-content: space-around;
+}
+
+ul li{
+    list-style-type: none;
+}
+
+ul a{
+    text-decoration: none;
+}
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+section div{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    margin: 5px;
+    height: 200px;
+}
+
+h3{
+    border-bottom: 1px solid brown;
+    text-align: center;
+}
+
+@media(max-width:600px){
+    section{
+        grid-template-columns: 1fr;
+    }
+}
+

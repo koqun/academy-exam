@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>투두리스트</h1>
+
+    <!--투두 form-->
+    <form id="todo_form">
+        <input type="text" placeholder="할일을 입력해주세요." id="todo_txt" required>
+        <input type="button" value="+" id="todo_bt">
+    </form>
+
+    <!--투두 ul-->
+    <ul id="todo_list" style="list-style-type: none;"></ul>
+
+    <p>오늘 완료한 할일 : <span></span>개</p>
+
+    <script src="./todobrd.js"></script>
+</body>
+</html>

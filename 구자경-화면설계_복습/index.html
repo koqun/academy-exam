@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- 메모 제목 -->
+        <input type="text" v-model="title"><br>
+        <!-- 메모 본문 -->
+        <textarea rows="10" cols="30" v-model="memo"></textarea>
+        <!-- 메모 추가버튼 -->
+        <button v-on:click="addMemo">메모 추가</button>
+        <!-- 메모 추가영역 -->
+        <memoComponent
+        v-for="memo in memolist" 
+        v-bind:key="memo.id"
+        v-bind:id="memo.id" 
+        v-bind:title="memo.title" 
+        v-bind:memo="memo.memo">
+        </memoComponent>
+    </div>
+
+    <script>
+        Vue.component('memoComponent',{
+            props:['id', 'title', 'memo'],
+            template:`<div>
+                    <h2>{{title}}</h2>
+                    <p>{{memo}}</p>
+                    <hr>
+                    <p>{{time}}</p>
+                </div>`,
+            data:function(){
+                return{
+                    memo:this.memo,
+                    title:this.title,
+                    time:new Date()
+                }
+            },
+            methods:{
+                deleteMemo:function(){
+                    // props로 받아온 id값을 이벤트와 함께 인수로 보내기
+                    // delete 이벤트 발생, id값
+                    this.$emit("delete", this.id)
+                }
+            },
+            computed:{
+                formatTime:function(){
+                    return this.time.getFullYear()+'년 '
+                    +(this.time.getMonth()+1)+'월 '
+                    +this.time.getData()+'일'
+                    // 시간까지 넣어보기
+                    // +this.time.getHours()+'시 '
+                    // +this.time.getMinutes()+'분 '
+                    // +this.time.getSeconds()+'초 '
+                }
+            }
+        })
+    </script>
+
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                id:0,
+                title:'',
+                memo:'',
+                memolist:[]
+            },
+            methods:{
+                addMemo:function(){
+                    this.id++;
+                    this.memo.push({id:this.id, title:this.title, memo:tihs.memo});
+                    this.title="";
+                    this.memo="";
+                },
+                deleteMemo:function(id){
+                    // memolist의 요소를 삭제하기
+                    // 배열의 splice(인덱스, 갯수) 메서드를 이용.
+                    // 문제:배열의 요소가 객체이기에 인덱스를 찾는 함수 사용 X
+                    // 해결:객체 안의 id값을 비교해서 index값을 찾아냄
+                    // 고민:배열의 값을 하나씩 비교하기위한 방법 for, forEach
+                    // 방법:객체안의 id값을 하나씩 비교하기위해 forEach 사용
+                    let index=0;
+                    this.memolist.forEach((element, i)=>{
+                        if(element.id==id){
+                            index=i;
+                        }
+                    });
+                    this.memolist.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
