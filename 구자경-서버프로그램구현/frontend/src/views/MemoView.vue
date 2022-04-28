@@ -6,7 +6,7 @@
             <tr v-for="(memo, i) in memo" :key="i">
                 <td>{{memo.id}}</td>
                 <td>{{memo.writer}}</td>
-                <td>{{memo.title}}</td>
+                <td @click="$router.push(`/page/${memo.id}`)">{{memo.title}}</td>
             </tr>
         </table>
     </div>

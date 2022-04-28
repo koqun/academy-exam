@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkfrontend"]=self["webpackChunkfrontend"]||[]).push([[456],{456:function(e,t,n){n.r(t),n.d(t,{default:function(){return l}});var o=function(){var e=this,t=e.$createElement,n=e._self._c||t;return n("div",[n("h1",[e._v(e._s(e.memo.title))]),n("p",[e._v(e._s(e.memo.memo))])])},r=[],m={created(){this.$http.get(`/api/memo/${this.$route.params.id}`).then((e=>{this.memo=e.data,console.log(this.memo)}))},data(){return{memo:{}}}},s=m,u=n(1),a=(0,u.Z)(s,o,r,!1,null,null,null),l=a.exports}}]);
+//# sourceMappingURL=456.24f0845c.js.map
