@@ -1,5 +1,6 @@
-import MemoBoard from "./components/MemoBoard";
-import MemoForm from "./components/MemoForm";
+import './App.css';
+import MemoBoard from './components/MemoBoard';
+import MemoForm from './components/MemoForm';
 
 function App() {
   return (
