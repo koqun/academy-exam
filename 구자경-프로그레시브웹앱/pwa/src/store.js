@@ -1,6 +1,7 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const memoSlice = createSlice({
+  name: "memo",
   initialState: {
     memoList: [{ id: 0, title: "첫번째", memo: "첫번째 메모입니다" }],
     id: 1,
